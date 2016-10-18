@@ -3,6 +3,7 @@ var allProducts = [];
 var counter = 0;
 var randomTrio = [];
 var allImgs = document.getElementById('imgs');
+
 function Product(name, filePath) {
   this.name = name
   this.filePath = filePath
@@ -14,7 +15,21 @@ new Product('banana slicer','assets/banana.jpg');
 new Product('bathroom','assets/bathroom.jpg');
 new Product('boots','assets/boots.jpg');
 new Product('breakfast','assets/breakfast.jpg');
-
+new Product('bubblegum.jpg', 'assets/bubblegum.jpg');
+new Product('chair.jpg', 'assets/chair.jpg');
+new Product('cthulhu.jpg', 'assets/cthulhu.jpg');
+new Product('dog-duck.jpg', 'assets/dog-duck.jpg');
+new Product('dragon.jpg', 'assets/dragon.jpg');
+new Product('pen.jpg', 'assets/pen.jpg');
+new Product('pet-sweep.jpg', 'assets/pet-sweep.jpg');
+new Product('scissors.jpg', 'assets/scissors.jpg');
+new Product('shark.jpg', 'assets/shark.jpg');
+new Product('sweep.png', 'assets/sweep.png');
+new Product('tauntaun.jpg', 'assets/tauntaun.jpg');
+new Product('unicorn.jpg', 'assets/unicorn.jpg');
+new Product('usb.gif', 'assets/usb.gif');
+new Product('water-can.jpg', 'assets/water-can.jpg');
+new Product('wine-glass.jpg', 'assets/wine-glass.jpg');
 
 function getRandom() {
   return Math.floor(Math.random() * allProducts.length);
@@ -55,7 +70,7 @@ function eventTally (pickedpic) {
     }
   }
 }
-console.log('left pics', leftPic.name);
+// console.log('left pics', leftPic.name);
 function clickEvent() {
   console.log('Clicked');
   if (event.target.name === leftPic.name || event.target.name === centerPic.name || event.target.name === rightPic.name) {
@@ -70,10 +85,33 @@ function clickEvent() {
 }
 allImgs.addEventListener('click', clickEvent);
 
-function Tracker(){
-  
-}
+// function Tracker(){
+//   create
+// }
 
+
+
+// var productClickTracker = {
+//   productClickTracker['R2D2-bag'] = 0
+//   productClickTracker['banana slicer'] = 0
+//   productClickTracker['bathroom'] = 0
+//   productClickTracker['boots'] = 0
+//   productClickTracker['breakfast'] = 0
+//   productClickTracker['all'] = 0
+// };
+//
+// productClickTracker[event.target.name] = productClickTracker[event.target.name]++;
+// productClickTracker['all'] = productClickTracker['all']++;
+
+
+// function countingClicks() {
+//   if (clickCounter < 15) {
+//     addingEventListeners('click', clickEvent);
+//   } else {
+//     //createresultsbutton();
+//     removingEventListeners('click', clickEvent);
+//   }
+// }
 
 // function shuffle(array) {
 //   var currentIndex = array.length, temporaryValue, randomIndex;
