@@ -27,6 +27,9 @@ var usedImagesCount = 0;
 
 function displayImage(){
 
+
+
+
     var num = Math.floor(Math.random() * (imagesArray.length));
     if (!usedImages[num]){
         document.canvas.src = imagesArray[num];
@@ -57,3 +60,7 @@ function shuffle(array) {
 }
 
 shuffleImages(arr) function, a renderImagesInPosition(position) function, and a decidePositionToRenderFunction
+
+
+
+include source code for the hed of the min.js scripting for chart.js before my own script, reference to something inside of the actual scripting. call a new chart, dive into the docs to figure out what we need to pas to the new chart call, 
