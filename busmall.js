@@ -66,24 +66,75 @@ function eventTally (pickedpic) {
   for( var i in allProducts){
     if(allProducts[i].name === pickedpic){
       allProducts[i].votes += 1;
-      counter +=1;
+      counter += 1;
+    } else if (counter === 15) {
+      resultsButton();
+      allImgs.removeEventListener('click',clickEvent);
     }
   }
 }
+// if (x > 5) {
+//
+// } else if (x > 50) {
+//
+// } else {
+//
+// }
 // console.log('left pics', leftPic.name);
 function clickEvent() {
   console.log('Clicked');
   if (event.target.name === leftPic.name || event.target.name === centerPic.name || event.target.name === rightPic.name) {
     eventTally(event.target.name);
-
-  } else {
-    alert('Please click');
+    // randomTrio = [];
+    // getRandomTrio();
+    // display();
+  //   counter += 1;
+  // } else if (counter >= 15) {
+  //   resultsButton();
+  //   allImgs.removeEventListener('click',clickEvent);
+  // } else {
+  //   alert('Please click');
   }
   randomTrio = [];
   getRandomTrio();
   display();
 }
+
 allImgs.addEventListener('click', clickEvent);
+// 1. Create the button
+function resultsButton() {
+  var body = document.getElementById('button');
+  var button = document.createElement('button');
+  button.innerHTML = "Get Results";
+  body.appendChild(button);
+  button.addEventListener ("click", revealUl);
+}
+
+function revealUl() {
+  var list = document.getElementById('allProducts');
+  var listEl = document.createElement('allProducts');
+  listEl.innerHTML = "Get Results";
+  list.appendChild(button);
+  listEl.addEventListener ("click", eventTally);
+}
+
+// resultsButton();
+//     }); else {
+//       removingEventListeners('click', clickEvent);
+//     }
+//   }
+// }
+// console.log(counter);
+
+// var button = document.createElement('button');
+// button.innerHTML = "Do Something";
+//
+// var body = document.getElementsByTagName('body')[0];
+// body.appendChild(button);
+//
+// button.addEventListener ("click", function() {
+//   alert("did something");
+// });
 
 // function Tracker(){
 //   create
@@ -105,10 +156,10 @@ allImgs.addEventListener('click', clickEvent);
 
 
 // function countingClicks() {
-//   if (clickCounter < 15) {
-//     addingEventListeners('click', clickEvent);
+//   if (counter < 15) {
+//     clickEvent();
 //   } else {
-//     //createresultsbutton();
+//     resultsButton();
 //     removingEventListeners('click', clickEvent);
 //   }
 // }
