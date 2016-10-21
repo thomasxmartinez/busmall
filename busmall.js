@@ -63,59 +63,72 @@ function display(){
 display();
 
 function eventTally (pickedpic) {
-  for( var i in allProducts){
+  for (var i = 0; i < allProducts.length; i++){
     if(allProducts[i].name === pickedpic){
       allProducts[i].votes += 1;
-      counter += 1;
-    } else if (counter === 15) {
-      resultsButton();
-      allImgs.removeEventListener('click',clickEvent);
     }
   }
 }
-// if (x > 5) {
-//
-// } else if (x > 50) {
-//
-// } else {
-//
-// }
-// console.log('left pics', leftPic.name);
+
 function clickEvent() {
   console.log('Clicked');
   if (event.target.name === leftPic.name || event.target.name === centerPic.name || event.target.name === rightPic.name) {
     eventTally(event.target.name);
-    // randomTrio = [];
-    // getRandomTrio();
-    // display();
-  //   counter += 1;
-  // } else if (counter >= 15) {
-  //   resultsButton();
-  //   allImgs.removeEventListener('click',clickEvent);
-  // } else {
-  //   alert('Please click');
+    counter += 1;
+    if (counter < 15) {
+      randomTrio = [];
+      getRandomTrio();
+      display();
+    } else {
+      resultsButton();
+      allImgs.removeEventListener('click',clickEvent);
+    }
+
+  } else {
+    alert('Please click');
   }
-  randomTrio = [];
-  getRandomTrio();
-  display();
 }
 
 allImgs.addEventListener('click', clickEvent);
-// 1. Create the button
+
 function resultsButton() {
   var body = document.getElementById('button');
   var button = document.createElement('button');
   button.innerHTML = "Get Results";
   body.appendChild(button);
-  button.addEventListener ("click", revealUl);
+  button.addEventListener ('click', votes);
 }
 
-function revealUl() {
-  var list = document.getElementById('allProducts');
-  var listEl = document.createElement('allProducts');
-  listEl.innerHTML = "Get Results";
-  list.appendChild(button);
-  listEl.addEventListener ("click", eventTally);
+
+function createUl(products) {
+  var allProducts = document.getElementById('allProducts');
+  var ulEl = document.createElement('ul');
+  document.getElementById('allProducts').appendChild(ulEl);
+
+  var liEl = document.createElement('li');
+  liEl.textContent = ('Product Name: ' + products.name + '(' + 'Times Voted: ' + products.votes + ')');
+  ulEl.appendChild(liEl);
+
+}
+// function createUl(products) {
+//   var allProducts =
+
+  // allProducts.appendChild(ulEl);//append UL to DOM
+  // liEl.addEventListener ('click', refreshButton)
+// }
+// var node = document.createElement("LI");                 // Create a <li> node
+// var textnode = document.createTextNode("Water");         // Create a text node
+// node.appendChild(textnode);                              // Append the text to <li>
+// document.getElementById("myList").appendChild(node);     // Append <li> to <ul> with id="myList"
+
+function votes() {
+  for (var i = 0; i < allProducts.length; i++) {
+  createUl(allProducts[i]);
+  }
+}
+
+function refreshButton() {
+
 }
 
 // resultsButton();
@@ -224,3 +237,25 @@ function revealUl() {
 // randomImageLeft();
 // randomImageCenter();
 // randomImageRight();
+// if (x > 5) {
+//
+// } else if (x > 50) {
+//
+// } else {
+//
+// }
+// console.log('left pics', leftPic.name);
+// } else if (counter >= 15) {
+//   resultsButton();
+//   allImgs.removeEventListener('click',clickEvent);
+// console.log('Hello');
+// console.log(randomTrio);
+// } else if (counter >= 15) {
+//   resultsButton();
+//   allImgs.removeEventListener('click',clickEvent);
+// randomTrio = [];
+// getRandomTrio();
+// display();
+// randomTrio = [];
+// getRandomTrio();
+// display();
