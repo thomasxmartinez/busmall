@@ -15,21 +15,21 @@ new Product('banana slicer','assets/banana.jpg');
 new Product('bathroom','assets/bathroom.jpg');
 new Product('boots','assets/boots.jpg');
 new Product('breakfast','assets/breakfast.jpg');
-new Product('bubblegum.jpg', 'assets/bubblegum.jpg');
-new Product('chair.jpg', 'assets/chair.jpg');
-new Product('cthulhu.jpg', 'assets/cthulhu.jpg');
-new Product('dog-duck.jpg', 'assets/dog-duck.jpg');
-new Product('dragon.jpg', 'assets/dragon.jpg');
-new Product('pen.jpg', 'assets/pen.jpg');
-new Product('pet-sweep.jpg', 'assets/pet-sweep.jpg');
-new Product('scissors.jpg', 'assets/scissors.jpg');
-new Product('shark.jpg', 'assets/shark.jpg');
-new Product('sweep.png', 'assets/sweep.png');
-new Product('tauntaun.jpg', 'assets/tauntaun.jpg');
-new Product('unicorn.jpg', 'assets/unicorn.jpg');
-new Product('usb.gif', 'assets/usb.gif');
-new Product('water-can.jpg', 'assets/water-can.jpg');
-new Product('wine-glass.jpg', 'assets/wine-glass.jpg');
+new Product('bubblegum', 'assets/bubblegum.jpg');
+new Product('chair', 'assets/chair.jpg');
+new Product('cthulhu', 'assets/cthulhu.jpg');
+new Product('dog-duck', 'assets/dog-duck.jpg');
+new Product('dragon', 'assets/dragon.jpg');
+new Product('pen', 'assets/pen.jpg');
+new Product('pet-sweep', 'assets/pet-sweep.jpg');
+new Product('scissors', 'assets/scissors.jpg');
+new Product('shark', 'assets/shark.jpg');
+new Product('sweep', 'assets/sweep.png');
+new Product('tauntaun', 'assets/tauntaun.jpg');
+new Product('unicorn', 'assets/unicorn.jpg');
+new Product('usb', 'assets/usb.gif');
+new Product('water-can', 'assets/water-can.jpg');
+new Product('wine-glass', 'assets/wine-glass.jpg');
 
 function getRandom() {
   return Math.floor(Math.random() * allProducts.length);
@@ -42,7 +42,6 @@ function getRandomTrio() { //holds 3 items
       randomNum = getRandom();
     }
     randomTrio.push(randomNum);
-    // check to see if the value from `getRandom()` already exists in randomTrio
   }
 }
 getRandomTrio();
@@ -50,8 +49,7 @@ getRandomTrio();
 var leftPic = document.getElementById('left');
 var centerPic = document.getElementById('center');
 var rightPic = document.getElementById('right');
-// console.log('Hello');
-// console.log(randomTrio);
+
 function display(){
   leftPic.src = allProducts[randomTrio[0]].filePath;
   leftPic.name = allProducts[randomTrio[0]].name;
@@ -99,7 +97,6 @@ function resultsButton() {
   button.addEventListener ('click', votes);
 }
 
-
 function createUl(products) {
   var allProducts = document.getElementById('allProducts');
   var ulEl = document.createElement('ul');
@@ -110,27 +107,72 @@ function createUl(products) {
   ulEl.appendChild(liEl);
 
 }
-// function createUl(products) {
-//   var allProducts =
-
-  // allProducts.appendChild(ulEl);//append UL to DOM
-  // liEl.addEventListener ('click', refreshButton)
-// }
-// var node = document.createElement("LI");                 // Create a <li> node
-// var textnode = document.createTextNode("Water");         // Create a text node
-// node.appendChild(textnode);                              // Append the text to <li>
-// document.getElementById("myList").appendChild(node);     // Append <li> to <ul> with id="myList"
 
 function votes() {
   for (var i = 0; i < allProducts.length; i++) {
-  createUl(allProducts[i]);
+    createUl(allProducts[i]);
   }
+  createChart();
 }
 
 function refreshButton() {
 
 }
 
+function getVotes(){
+  var chartVotes = [];
+  for (var i = 0; i < allProducts.length; i ++) {
+    chartVotes.push(allProducts[i].votes);
+  }
+  return chartVotes;
+}
+function getNames() {
+  var chartNames = [];
+  for (var i = 0; i < allProducts.length; i++) {
+    chartNames.push(allProducts[i].name);
+  }
+  return chartNames;
+}
+function createChart(products) {
+var canvas = document.getElementById('canvas');
+
+var myChart = new Chart(canvas, {
+  type: 'bar',
+  data: {
+    labels: getNames(),
+    datasets: [{
+      label: 'Consumer Choice Results',
+      data: getVotes(),
+      backgroundColor:'#000000 ',
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Items'
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          max: 4,
+          min: 0,
+          stepSize: 1,
+        }
+      }]
+    }
+  }
+});
+}
+// createChart();
+// createChart();
+// function chart () {
+//   for (var i = 0; i < allProducts.length; i++);
+//   createChart(allProducts[i]);
+// }
+// chart();
 // resultsButton();
 //     }); else {
 //       removingEventListeners('click', clickEvent);
@@ -259,3 +301,14 @@ function refreshButton() {
 // randomTrio = [];
 // getRandomTrio();
 // display();
+
+// function createUl(products) {
+//   var allProducts =
+
+// allProducts.appendChild(ulEl);//append UL to DOM
+// liEl.addEventListener ('click', refreshButton)
+// }
+// var node = document.createElement("LI");                 // Create a <li> node
+// var textnode = document.createTextNode("Water");         // Create a text node
+// node.appendChild(textnode);                              // Append the text to <li>
+// document.getElementById("myList").appendChild(node);     // Append <li> to <ul> with id="myList"
