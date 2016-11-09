@@ -67,7 +67,9 @@ function eventTally (pickedpic) {
     }
   }
 }
-
+function makeChart() {
+  console.log(allProducts);
+}
 function clickEvent() {
   console.log('Clicked');
   if (event.target.name === leftPic.name || event.target.name === centerPic.name || event.target.name === rightPic.name) {
@@ -80,6 +82,8 @@ function clickEvent() {
     } else {
       resultsButton();
       allImgs.removeEventListener('click',clickEvent);
+      makeChart();
+      localStorage.setItem('allProducts', JSON.stringify(allProducts));
     }
 
   } else {
@@ -114,7 +118,9 @@ function votes() {
   }
   createChart();
 }
-
+function checkStorage() {
+  if ()
+}
 function refreshButton() {
 
 }
@@ -166,149 +172,4 @@ var myChart = new Chart(canvas, {
   }
 });
 }
-// createChart();
-// createChart();
-// function chart () {
-//   for (var i = 0; i < allProducts.length; i++);
-//   createChart(allProducts[i]);
-// }
-// chart();
-// resultsButton();
-//     }); else {
-//       removingEventListeners('click', clickEvent);
-//     }
-//   }
-// }
-// console.log(counter);
-
-// var button = document.createElement('button');
-// button.innerHTML = "Do Something";
-//
-// var body = document.getElementsByTagName('body')[0];
-// body.appendChild(button);
-//
-// button.addEventListener ("click", function() {
-//   alert("did something");
-// });
-
-// function Tracker(){
-//   create
-// }
-
-
-
-// var productClickTracker = {
-//   productClickTracker['R2D2-bag'] = 0
-//   productClickTracker['banana slicer'] = 0
-//   productClickTracker['bathroom'] = 0
-//   productClickTracker['boots'] = 0
-//   productClickTracker['breakfast'] = 0
-//   productClickTracker['all'] = 0
-// };
-//
-// productClickTracker[event.target.name] = productClickTracker[event.target.name]++;
-// productClickTracker['all'] = productClickTracker['all']++;
-
-
-// function countingClicks() {
-//   if (counter < 15) {
-//     clickEvent();
-//   } else {
-//     resultsButton();
-//     removingEventListeners('click', clickEvent);
-//   }
-// }
-
-// function shuffle(array) {
-//   var currentIndex = array.length, temporaryValue, randomIndex;
-//   // While there remain elements to shuffle...
-//   while (0 !== currentIndex) {
-//     // Pick a remaining element...
-//     randomIndex = Math.floor(Math.random() * currentIndex);
-//     currentIndex -= 1;
-//     // And swap it with the current element.
-//     temporaryValue = array[currentIndex];
-//     array[currentIndex] = array[randomIndex];
-//     array[randomIndex] = temporaryValue;
-//   }
-//   return array;
-// }
-// randomIndex = shuffle(allProducts);
-//
-
-// function positionDecision() {
-//   for (var i = 0; i < randomIndex.length;i++) {
-//     if(i%3 == 0) {
-//       randomImageInPosition('left');
-//     }
-//     else if (i%3==1) {
-//       randomImageInPosition('center');
-//     } else {
-//       randomImageInPosition('right');
-//     }
-//   }
-// };
-// positionDecision();
-//
-// function randomImageInPosition(position) {
-//   for (var i = 0; i < randomIndex.length; i ++) {
-//   var renderEl = document.getElementById(position);
-//   renderEl.src = randomIndex[i].filePath;
-//   }
-// }
-
-
-
-// function randomImageLeft() {
-//   var randomNum = Math.floor(Math.random() * allProducts.length);
-//   var leftRenderEl = document.getElementById('left');
-//   leftRenderEl.src = allProducts[randomNum].filePath;
-// }
-//
-// function randomImageCenter() {
-//   var randomNum = Math.floor(Math.random() * allProducts.length);
-//   var centerRenderEl = document.getElementById('center');
-//   centerRenderEl.src = allProducts[randomNum].filePath;
-// }
-//
-// function randomImageRight() {
-//   var randomNum = Math.floor(Math.random() * allProducts.length);
-//   var rightRenderEl = document.getElementById('right');
-//   rightRenderEl.src = allProducts[randomNum].filePath;
-// }
-// randomImageLeft();
-// randomImageCenter();
-// randomImageRight();
-// if (x > 5) {
-//
-// } else if (x > 50) {
-//
-// } else {
-//
-// }
-// console.log('left pics', leftPic.name);
-// } else if (counter >= 15) {
-//   resultsButton();
-//   allImgs.removeEventListener('click',clickEvent);
-// console.log('Hello');
-// console.log(randomTrio);
-// } else if (counter >= 15) {
-//   resultsButton();
-//   allImgs.removeEventListener('click',clickEvent);
-// randomTrio = [];
-// getRandomTrio();
-// display();
-// randomTrio = [];
-// getRandomTrio();
-// display();
-
-// function createUl(products) {
-//   var allProducts =
-
-// allProducts.appendChild(ulEl);//append UL to DOM
-// liEl.addEventListener ('click', refreshButton)
-// }
-// var node = document.createElement("LI");                 // Create a <li> node
-// var textnode = document.createTextNode("Water");         // Create a text node
-// node.appendChild(textnode);                              // Append the text to <li>
-// document.getElementById("myList").appendChild(node);     // Append <li> to <ul> with id="myList"
+checkStorage();
