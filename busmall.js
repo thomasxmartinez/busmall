@@ -118,9 +118,10 @@ function votes() {
   }
   createChart();
 }
-function checkStorage() {
-  if ()
+function makeChart() {
+  console.log(allProducts);
 }
+
 function refreshButton() {
 
 }
@@ -172,4 +173,3 @@ var myChart = new Chart(canvas, {
   }
 });
 }
-checkStorage();
