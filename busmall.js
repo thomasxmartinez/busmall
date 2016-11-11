@@ -118,9 +118,10 @@ function votes() {
   }
   createChart();
 }
-function checkStorage() {
-  if ()
+function makeChart() {
+  console.log(allProducts);
 }
+
 function refreshButton() {
 
 }
@@ -149,7 +150,7 @@ var myChart = new Chart(canvas, {
     datasets: [{
       label: 'Consumer Choice Results',
       data: getVotes(),
-      backgroundColor:'#000000 ',
+      backgroundColor:'#00ccff',
       borderWidth: 1
     }]
   },
@@ -172,4 +173,3 @@ var myChart = new Chart(canvas, {
   }
 });
 }
-checkStorage();
