@@ -1,3 +1,47 @@
-body {
+*{
+  background-color: #333399;
+  text-decoration-color: #00ccff;
+  font-family: 'Lobster', cursive
+  font-style: color #00ccff;
+}
 
+#imgs{
+  padding-left: 400px;
+  padding-top: 200px;
+}
+#button {
+  color: #00ccff;
+  text-decoration: none;color: #00ccff;
+  font-family: 'Lobster', cursive;
+  float:right;
+  padding-right: 400px;
+}
+img{
+  border-radius: 4px;
+  border-color: #00ccff;
+  border-width: 4px;
+  border-style: solid;
+  height: 300px;
+  width: 300px;
+
+}
+h1{
+  color: #00ccff;
+  font-family: 'Lobster', cursive;
+  padding-left: 800px;
+}
+p{
+  color: #00ccff;
+  font-family: 'Lobster', cursive;
+  padding-left: 700px;
+}
+div{
+  color: #00ccff;
+  font-family: 'Lobster', cursive;
+
+
+}
+ul{
+  color: #00ccff;
+  font-family: 'Lobster', cursive;
 }
